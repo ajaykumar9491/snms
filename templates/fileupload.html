@@ -1,0 +1,26 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+  <div class="upload-container" style="
+    background: white;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  ">
+    <h2 style="text-align: center; margin-bottom: 20px;">Upload a File</h2>
+    <form action="{{ url_for('fileupload') }}" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" required style="margin-bottom: 15px; width: 100%;" />
+      <input type="submit" value="Upload" style="
+        background-color: #007BFF;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+      " />
+    </form>
+  </div>
+{% endblock %}

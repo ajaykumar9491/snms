@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Registration</title>
+  
+  <style>
+    body {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      animation: fadeInBody 1s ease-in-out;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+      outline: none;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+
+    button[type="submit"]:active {
+      transform: scale(0.97);
+
+    }
+    flash-message {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #d9534f;
+      font-weight: bold;
+    }
+    flash-message.success {
+      color: #28a745;
+    }
+    
+    elif
+    flash-message.error {
+      color: #d9534f;
+      margin-top: 20px;
+    }
+
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+    
+  {% endif %}
+{% endwith %}
+<body>
+
+  <form method="post">
+    <h2>User Registration</h2>
+    <input type="text" name="username" placeholder="Enter username" required /><br>
+    <input type="email" name="usermail" placeholder="Enter usermail" required /><br>
+    <input type="password" name="password" placeholder="Enter password" required /><br>
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>

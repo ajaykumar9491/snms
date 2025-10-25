@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .otp-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .otp-container:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border: 2px solid #2575fc;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.4);
+        }
+
+        button {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+        }
+
+        /* Message */
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 20px;">
+      {% for message in messages %}
+        <div style="
+          background: linear-gradient(90deg, #4facfe, #00f2fe);
+          color: #ffffff;
+          width: 80%;
+          max-width: 450px;
+          padding: 14px 18px;
+          margin: 8px 0;
+          border-radius: 10px;
+          font-family: 'Segoe UI', sans-serif;
+          font-size: 15px;
+          font-weight: 500;
+          letter-spacing: 0.3px;
+          text-align: center;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          transition: all 0.4s ease;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="otp-container">
+        <h2>Enter OTP</h2>
+        <form method="post">
+        <input type="text" name="otp" placeholder="Enter your OTP"><br><br>
+        <button>Submit</button><br><br>
+        <p id="message"></p>
+        </form>
+    </div>
+</body>
+</html>

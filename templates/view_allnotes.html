@@ -1,0 +1,45 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+  <style>
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+<body>
+  <h2 style="text-align:center;">Data Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>NID</th>
+        <th>Title</th>
+        <th>Created At</th>
+        <th>View Notes</th>
+        <th>Update Notes</th>
+        <th>Delete Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in ndata %}
+      <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td><a href="{{url_for('view_notes',nid=i[0])}}">View_notes</a></td>
+        <td><a href='{{url_for("update_notes",nid=i[0])}}'>update_notes</a></td>
+        <td><a href='{{url_for("deletenotes",nid=i[0])}}'>delete_notes</a></td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+</body>
+{% endblock %}

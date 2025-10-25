@@ -1,0 +1,60 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Content Table</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>fid</th>
+        <th>title</th>
+        <th>created_at</th>
+        <th>View</th>
+        <th>Download</th>
+        <th>Delete</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in ndata %}
+      <tr>
+     
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[3]}}</td>
+        <td><a href="{{url_for('view_file',fid=i[0])}}">View</a></td>
+        <td><a href="{{url_for('download_file',fid=i[0])}}">Download</a></td>
+        <td><a href="{{url_for('delete_file',fid=i[0])}}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      <!-- You can add more rows here -->
+    </tbody>
+  </table>
+</body>
+
+{% endblock %}

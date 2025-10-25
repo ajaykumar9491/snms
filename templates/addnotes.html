@@ -1,0 +1,29 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+    <style>
+        .d{
+            border: 2px double green;
+            border-radius: 10px;
+            margin-top: 2%;
+            margin-left: 32%;
+            margin-right: 32%;
+            padding: 10px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="d">
+            <form method="post">
+            <label for="">Enter Title: </label> <br>
+            <input type="text" name="title" required><br><br>
+            <label>Description: </label><br>
+           <textarea name="description" id=""></textarea><br><br>
+            <button>Submit</button>
+        </form>
+        </div>
+    </center>
+</body>
+{% endblock %}
